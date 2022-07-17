@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useQuery } from "react-query";
 
 import { getTrendingMovies } from "../../services";
@@ -7,7 +7,10 @@ import { originalImage, truncateString } from "../../utils";
 const Hero = () => {
     const { data, isLoading } = useQuery("test", getTrendingMovies);
 
-    const movie = data && data[Math.floor(Math.random() * data?.length)];
+    const movie = useMemo(
+        () => data && data[Math.floor(Math.random() * data?.length)],
+        [data],
+    );
     const movieImage = originalImage(movie?.backdrop_path || "");
 
     if (isLoading) {

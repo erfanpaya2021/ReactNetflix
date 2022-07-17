@@ -53,7 +53,7 @@ export const AuthContextProvider: FunctionComponent<{
         return () => {
             unsubscribe();
         };
-    });
+    }, []);
 
     return (
         <AuthContext.Provider value={{ user, singUp, logIn, logOut }}>
