@@ -5,6 +5,8 @@ import SignUp from "./signup";
 import Login from "./login";
 import Account from "./account";
 
+import { ProtectedRoute } from "../components";
+
 const routes: RouteObject[] = [
     {
         path: "/",
@@ -20,7 +22,11 @@ const routes: RouteObject[] = [
     },
     {
         path: "/account",
-        element: <Account />,
+        element: (
+            <ProtectedRoute>
+                <Account />
+            </ProtectedRoute>
+        ),
     },
 ];
 

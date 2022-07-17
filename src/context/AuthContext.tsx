@@ -39,7 +39,7 @@ export const AuthContextProvider: FunctionComponent<{
 
     const singUp = (email: string, password: string) => {
         createUserWithEmailAndPassword(auth, email, password);
-        setDoc(doc(db, "users", email), { savedShows: [] });
+        setDoc(doc(db, "users", email), { savedMovies: [] });
     };
     const logIn = (email: string, password: string) =>
         signInWithEmailAndPassword(auth, email, password);
