@@ -3,7 +3,7 @@ import {
     getTopRatedMovies,
     getPopularMovies,
     getTrendingMovies,
-    getHorrorMovies,
+    getByQuery,
 } from "../../services";
 
 import Hero from "./Hero";
@@ -17,7 +17,8 @@ const Home = () => {
             <Row title="Trending" asyncFunction={getTrendingMovies} />
             <Row title="Top Rated" asyncFunction={getTopRatedMovies} />
             <Row title="Popular" asyncFunction={getPopularMovies} />
-            <Row title="Horror" asyncFunction={getHorrorMovies} />
+            <Row title="Action" asyncFunction={() => getByQuery("action")} />
+            <Row title="Horror" asyncFunction={() => getByQuery("horror")} />
         </>
     );
 };

@@ -1,10 +1,10 @@
 import api from "../../app/api";
 import { MyResponse } from "../../models";
 
-export const getHorrorMovies = async () => {
+export const getByQuery = async (query: string) => {
     const res: MyResponse = await api.get(`search/movie`, {
         params: {
-            query: "horror",
+            query,
             language: "en-US",
             page: 1,
             include_adult: false,
