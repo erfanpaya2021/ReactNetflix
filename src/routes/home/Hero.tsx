@@ -1,11 +1,11 @@
 import React from "react";
 import { useQuery } from "react-query";
 
-import { getPopularMovies } from "../../services";
+import { getTrendingMovies } from "../../services";
 import { originalImage, truncateString } from "../../utils";
 
 const Hero = () => {
-    const { data, isLoading } = useQuery("test", getPopularMovies);
+    const { data, isLoading } = useQuery("test", getTrendingMovies);
 
     const movie = data && data[Math.floor(Math.random() * data?.length)];
     const movieImage = originalImage(movie?.backdrop_path || "");
